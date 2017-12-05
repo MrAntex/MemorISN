@@ -1,0 +1,5 @@
+
+void main(){
+	int test=random(1,6);
+	println(test);
+}

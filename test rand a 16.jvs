@@ -1,0 +1,53 @@
+
+void main(){
+
+	int test1 = random (1,17);
+	
+	int test2 = random (1,17);
+		while(test2==test1){test2=random(0,17);}
+			 
+	int test3 = random (1,17);
+		while(test3==test2||test3==test1){ test3 = random (0,17);}
+			
+	int test4 = random (1,17);
+		while(test4==test3||test4==test2||test4==test1){test4 = random (0,17);}
+			 
+	int test5 = random (1,17);
+		while(test5==test4||test5==test3||test5==test2||test5==test1){test5 = random (0,17);}
+			 
+	int test6 = random (1,17);
+		while(test6==test5||test6==test4||test6==test3||test6==test2||test6==test1){test6 = random (0,17);}
+			 
+	int test7 = random (1,17);
+		while(test7==test6||test7==test5||test7==test4||test7==test3||test7==test2||test7==test1){test7 = random (0,17);}
+			 
+	int test8 = random (1,17);
+		while(test8==test7||test8==test6||test8==test5||test8==test4||test8==test3||test8==test2||test8==test1){test8 = random (0,17);}
+		
+	int test9 = random (1,17);
+		while(test8==test7||test8==test6||test8==test5||test8==test4||test8==test3||test8==test2||test8==test1||test8==test1){test8 = random (0,17);}
+	
+	int test10 = random (1,17);
+		while(test8==test7||test8==test6||test8==test5||test8==test4||test8==test3||test8==test2||test8==test1||test8==test1||test8==test1){test8 = random (0,17);}
+	
+	int test11 = random (1,17);
+		while(test8==test7||test8==test6||test8==test5||test8==test4||test8==test3||test8==test2||test8==test1||test8==test1||test8==test1||test8==test1){test8 = random (0,17);}
+	
+	int test12= random (1,17);
+		while(test8==test7||test8==test6||test8==test5||test8==test4||test8==test3||test8==test2||test8==test1||test8==test1||test8==test1||test8==test1||test8==test1){test8 = random (0,17);}
+	
+	int test13= random (1,17);
+		while(test8==test7||test8==test6||test8==test5||test8==test4||test8==test3||test8==test2||test8==test1||test8==test1||test8==test1||test8==test1||test8==test1||test8==test1){test8 = random (0,17);}
+	
+	int test14= random (1,17);
+		while(test8==test7||test8==test6||test8==test5||test8==test4||test8==test3||test8==test2||test8==test1||test8==test1||test8==test1||test8==test1||test8==test1||test8==test1||test8==test1){test8 = random (0,17);}
+	
+	int test15= random (1,17);
+		while(test8==test7||test8==test6||test8==test5||test8==test4||test8==test3||test8==test2||test8==test1||test8==test1||test8==test1||test8==test1||test8==test1||test8==test1||test8==test1||test8==test1){test8 = random (0,17);}
+	
+	int test16= random (1,17);
+		while(test8==test7||test8==test6||test8==test5||test8==test4||test8==test3||test8==test2||test8==test1||test8==test1||test8==test1||test8==test1||test8==test1||test8==test1||test8==test1||test8==test1||test8==test1){test8 = random (0,17);}
+	
+
+
+}
