@@ -1,0 +1,451 @@
+
+int [][] cartes = new int [16][12];
+int [][][] tab = new int [8][9][3];
+int [] ordre = new int [16];
+int [] ordrebas = new int [8];
+int [] ordrebas2 = new int [8];
+int [] casesprises = new int [16];
+int score = 0;
+String joueur_nom;
+int joueur=1;
+
+void cachecartes(int [][] cartes, int tab [][][]){
+	for(int numero_carte=0;numero_carte<=7;numero_carte++){
+	
+	
+		for(int case_carte=0;case_carte<=8;case_carte++){
+			
+			
+				
+				setPixel(tab[numero_carte][case_carte][0],tab[numero_carte][case_carte][2],"red");
+				setPixel(tab[numero_carte][case_carte][0],tab[numero_carte][case_carte][1],"red");
+		}}}
+
+
+
+	void cachesolocarte(int [][] cartes, int tab [][][],int num){
+		int tab3=1;
+		int num2=num;
+				if (num>7){
+					 num2=num-8;
+					 tab3 = 2;
+				}
+				
+		for(int case_carte=0;case_carte<=8;case_carte++){
+				setPixel(tab[num2][case_carte][0],tab[num2][case_carte][tab3],"red");
+				//setPixel(tab[num2][case_carte][0],tab[num2][case_carte][1],"red");
+		}}
+
+		
+void ordrecartes(int [] ordre){
+
+	int test1 = random (0,16);
+	
+	int test2 = random (0,16);
+		while(test2==test1){test2=random(0,16);}
+			 
+	int test3 = random (0,16);
+		while(test3==test2||test3==test1){ test3 = random (0,16);}
+			
+	int test4 = random (0,16);
+		while(test4==test3||test4==test2||test4==test1){test4 = random (0,16);}
+			 
+	int test5 = random (0,16);
+		while(test5==test4||test5==test3||test5==test2||test5==test1){test5 = random (0,16);}
+			 
+	int test6 = random (0,16);
+		while(test6==test5||test6==test4||test6==test3||test6==test2||test6==test1){test6 = random (0,16);}
+			 
+	int test7 = random (0,16);
+		while(test7==test6||test7==test5||test7==test4||test7==test3||test7==test2||test7==test1){test7 = random (0,16);}
+			 
+	int test8 = random (0,16);
+		while(test8==test7||test8==test6||test8==test5||test8==test4||test8==test3||test8==test2||test8==test1){test8 = random (0,16);}
+		
+	int test9 = random (0,16);
+		while(test9==test1||test9==test2||test9==test3||test9==test4||test9==test5||test9==test6||test9==test7||test9==test8){test9 = random (0,16);}
+	
+	int test10 = random (0,16);
+		while(test10==test1||test10==test2||test10==test3||test10==test4||test10==test5||test10==test6||test10==test7||test10==test8||test10==test9){test10 = random (0,16);}
+	
+	int test11 = random (0,16);
+		while(test11==test1||test11==test2||test11==test3||test11==test4||test11==test5||test11==test6||test11==test7||test11==test8||test11==test9||test11==test10){test11 = random (0,16);}
+	
+	int test12= random (0,16);
+		while(test12==test2||test12==test3||test12==test4||test12==test5||test12==test6||test12==test7||test12==test8||test12==test9||test12==test10||test12==test1||test12==test11){test12 = random (0,16);}
+	
+	int test13= random (0,16);
+		while(test13==test1||test13==test2||test13==test3||test13==test4||test13==test5||test13==test6||test13==test7||test13==test8||test13==test9||test13==test10||test13==test11||test13==test12){test13 = random (0,16);}
+	
+	int test14= random (0,16);
+		while(test14==test1||test14==test2||test14==test3||test14==test4||test14==test5||test14==test6||test14==test7||test14==test8||test14==test9||test14==test10||test14==test11||test14==test12||test14==test13){test14 = random (0,16);}
+	
+	int test15= random (0,16);
+		while(test15==test1||test15==test2||test15==test3||test15==test4||test15==test5||test15==test6||test15==test7||test15==test8||test15==test9||test15==test10||test15==test11||test15==test12||test15==test13||test15==test14){test15 = random (0,16);}
+	
+	int test16= random (0,16);
+		while(test16==test1||test16==test2||test16==test3||test16==test4||test16==test5||test16==test6||test16==test7||test16==test8||test16==test9||test16==test10||test16==test11||test16==test12||test16==test13||test16==test14||test16==test15){test16 = random (0,16);}
+
+
+	ordre[0]=test1;
+	ordre[1]=test2;
+	ordre[2]=test3;
+	ordre[3]=test4;
+	ordre[4]=test5;
+	ordre[5]=test6;
+	ordre[6]=test7;
+	ordre[7]=test8;
+	
+	ordre[8]=test9;
+	ordre[9]=test10;
+	ordre[10]=test11;
+	ordre[11]=test12;
+	ordre[12]=test13;
+	ordre[13]=test14;
+	ordre[14]=test15;
+	ordre[15]=test16;
+	
+	int compteur2=0;
+for(int numordre2=0;numordre2<=15;numordre2++){
+			
+			
+			if (ordre[numordre2]<8){
+				 ordrebas2[compteur2]=ordre[numordre2];
+				compteur2++;
+			}
+			
+}
+	for (int numero_carte=0;numero_carte<=7;numero_carte++)
+	{
+		
+		
+	cartes [ordre[numero_carte]][9]=random(1,220);
+	cartes [ordre[numero_carte]][10]=random(1,220);
+	cartes [ordre[numero_carte]][11]=random(1,220);
+	for (int r=0;r<9;r++)
+		{
+		cartes[ordre[numero_carte]][r] = random (0,2);
+		}
+	//setPixel(0,0, cartes [numero_carte][9],cartes [numero_carte][10],cartes [numero_carte][11]);
+	}
+
+
+}
+
+void randcartesbas(int [][] cartes){
+	/*int test1 = random (1,8);
+	
+	int test2 = random (1,8);
+		while(test2==test1){test2=random(0,8);}
+			 
+	int test3 = random (1,8);
+		while(test3==test2||test3==test1){ test3 = random (0,8);}
+			
+	int test4 = random (1,8);
+		while(test4==test3||test4==test2||test4==test1){test4 = random (0,8);}
+			 
+	int test5 = random (1,8);
+		while(test5==test4||test5==test3||test5==test2||test5==test1){test5 = random (0,8);}
+			 
+	int test6 = random (1,8);
+		while(test6==test5||test6==test4||test6==test3||test6==test2||test6==test1){test6 = random (0,8);}
+			 
+	int test7 = random (1,8);
+		while(test7==test6||test7==test5||test7==test4||test7==test3||test7==test2||test7==test1){test7 = random (0,8);}
+			 
+	int test8 = random (1,8);
+		while(test8==test7||test8==test6||test8==test5||test8==test4||test8==test3||test8==test2||test8==test1){test8 = random (0,8);}
+*/
+			int compteur=0;
+		for(int numordre=0;numordre<=15;numordre++){
+			
+			
+			if (ordre[numordre]>7){
+				 ordrebas[compteur]=ordre[numordre];
+				 compteur++;
+			}
+			
+			
+		}
+			 for(int comp=0;comp<=11;comp++){
+			 	
+			 	cartes[ordre[8]][comp]=cartes[ordre[0]][comp];
+			 	cartes[ordre[9]][comp]=cartes[ordre[1]][comp];
+			 	cartes[ordre[10]][comp]=cartes[ordre[2]][comp];
+			 	cartes[ordre[11]][comp]=cartes[ordre[3]][comp];
+			 	cartes[ordre[12]][comp]=cartes[ordre[4]][comp];
+			 	cartes[ordre[13]][comp]=cartes[ordre[5]][comp];
+			 	cartes[ordre[14]][comp]=cartes[ordre[6]][comp];
+			 	cartes[ordre[15]][comp]=cartes[ordre[7]][comp];
+			 }
+
+}
+void affcartes2(int [][] cartes, int tab [][][]) {
+	
+
+			 for(int numero_carte=0;numero_carte<=7;numero_carte++){
+	
+	
+		for(int case_carte=0;case_carte<=8;case_carte++){
+			
+			if (cartes[numero_carte +8][case_carte] == 0){
+				
+				setPixel(tab[numero_carte][case_carte][0],tab[numero_carte][case_carte][2],"white");
+		} 
+			else{
+				
+				setPixel(tab[numero_carte][case_carte][0],tab[numero_carte][case_carte][2],cartes[numero_carte+8][9],cartes[numero_carte+8][10],cartes[numero_carte+8][11]);
+				//setPixel(tab[numero_carte][case_carte][0],tab[numero_carte][case_carte][2],cartes[numero_carte][9],cartes[numero_carte][10],cartes[numero_carte][11]);
+				
+			}
+	
+	
+}
+}
+}
+
+void affcartes(int [][] cartes,int [][][] tab){
+	
+for(int numero_carte=0;numero_carte<=7;numero_carte++){
+	
+	
+		for(int case_carte=0;case_carte<=8;case_carte++){
+			
+			if (cartes[numero_carte][case_carte] == 0){
+				
+				setPixel(tab[numero_carte][case_carte][0],tab[numero_carte][case_carte][1],"white");
+		} 
+			else{
+				
+				setPixel(tab[numero_carte][case_carte][0],tab[numero_carte][case_carte][1],cartes[numero_carte][9],cartes[numero_carte][10],cartes[numero_carte][11]);
+				//setPixel(tab[numero_carte][case_carte][0],tab[numero_carte][case_carte][2],cartes[numero_carte][9],cartes[numero_carte][10],cartes[numero_carte][11]);
+				
+			}
+	
+	
+}
+}
+}
+
+
+void affsolocarte(int [][] cartes,int [][][] tab,int num){
+		int tab3=1;
+		int num2=num;
+				if (num>7){
+					 num2=num-8;
+					 tab3 = 2;
+				}
+				
+				
+for(int case_carte=0;case_carte<=8;case_carte++){
+			
+			if (cartes[num][case_carte] == 0){
+				
+				setPixel(tab[num2][case_carte][0],tab[num2][case_carte][tab3],"white");
+		} 
+			else{
+				
+				setPixel(tab[num2][case_carte][0],tab[num2][case_carte][tab3],cartes[num][9],cartes[num][10],cartes[num][11]);
+				//setPixel(tab[numero_carte][case_carte][0],tab[numero_carte][case_carte][2],cartes[numero_carte][9],cartes[numero_carte][10],cartes[numero_carte][11]);
+				
+			}
+
+
+
+
+
+
+	
+}
+}
+
+	void main()
+{
+ reset (8,8);
+score = 0;
+joueur=1;
+
+ for(int k=-8;k<=8;k++)
+	{
+	setPixel(-8,k,"black");
+	setPixel(-4,k,"black");
+	setPixel(0,k,"black");
+	setPixel(4,k,"black");
+	setPixel(8,k,"black");
+	setPixel(k,8,"black");
+	setPixel(k,4,"black");
+	setPixel(k,0,"black");
+	setPixel(k,-4,"black");
+	setPixel(k,-8,"black");
+	}
+
+	
+	
+ordrecartes(ordre);
+
+for (int h=0;h<=6;h=h+3)
+{
+	tab[0][h][0]=-7;
+	tab[4][h][0]=-7;
+	tab[0][h+1][0]=-6;
+	tab[4][h+1][0]=-6;
+	tab[0][h+2][0]=-5;
+	tab[4][h+2][0]=-5;
+	
+	tab[1][h][0]=-3;
+	tab[5][h][0]=-3;
+	tab[1][h+1][0]=-2;
+	tab[5][h+1][0]=-2;
+	tab[1][h+2][0]=-1;
+	tab[5][h+2][0]=-1;
+	
+	tab[2][h][0]=1;
+	tab[6][h][0]=1;
+	tab[2][h+1][0]=2;
+	tab[6][h+1][0]=2;
+	tab[2][h+2][0]=3;
+	tab[6][h+2][0]=3;
+	
+	tab[3][h][0]=5;
+	tab[7][h][0]=5;
+	tab[3][h+1][0]=6;
+	tab[7][h+1][0]=6;
+	tab[3][h+2][0]=7;
+	tab[7][h+2][0]=7;
+	
+}
+for (int u=0;u<=3;u++)
+{
+	tab[u][0][1]=7;
+	tab[u][1][1]=7;
+	tab[u][2][1]=7;
+	tab[u][3][1]=6;
+	tab[u][4][1]=6;
+	tab[u][5][1]=6;
+	tab[u][6][1]=5;
+	tab[u][7][1]=5;
+	tab[u][8][1]=5;
+	tab[u+4][0][1]=3;
+	tab[u+4][1][1]=3;
+	tab[u+4][2][1]=3;
+	tab[u+4][3][1]=2;
+	tab[u+4][4][1]=2;
+	tab[u+4][5][1]=2;
+	tab[u+4][6][1]=1;
+	tab[u+4][7][1]=1;
+	tab[u+4][8][1]=1;
+
+	tab[u][0][2]=-1;
+	tab[u][1][2]=-1;
+	tab[u][2][2]=-1;
+	tab[u][3][2]=-2;
+	tab[u][4][2]=-2;
+	tab[u][5][2]=-2;
+	tab[u][6][2]=-3;
+	tab[u][7][2]=-3;
+	tab[u][8][2]=-3;
+	tab[u+4][0][2]=-5;
+	tab[u+4][1][2]=-5;
+	tab[u+4][2][2]=-5;
+	tab[u+4][3][2]=-6;
+	tab[u+4][4][2]=-6;
+	tab[u+4][5][2]=-6;
+	tab[u+4][6][2]=-7;
+	tab[u+4][7][2]=-7;
+	tab[u+4][8][2]=-7;
+	
+	
+}
+	randcartesbas(cartes);
+	 int choix = 1; //readInt("1 = cacher / 2 = montrer");
+	 
+		if (choix == 1){cachecartes(cartes,tab);}
+		
+			else if(choix == 2){
+				affcartes(cartes,tab);
+				affcartes2(cartes,tab);
+			}
+
+			String joueur1 = readString("Entrez le nom du premier joueur.");
+			String joueur2 = readString("Entrez le nom du second joueur.");
+			
+while (score <8){
+
+	
+
+
+	if (joueur == 1){
+		joueur_nom = joueur1;
+	}
+	else if (joueur == 2){
+		joueur_nom = joueur2;	
+	}
+	
+	int choix1 = readInt( joueur_nom + ", choisissez votre première case.");
+		while (((choix1==casesprises[0])||(choix1==casesprises[1])||(choix1==casesprises[2])||(choix1==casesprises[3])||(choix1==casesprises[4])||(choix1==casesprises[5])||(choix1==casesprises[6])||(choix1==casesprises[7])||(choix1==casesprises[8])||(choix1==casesprises[9])||(choix1==casesprises[10])||(choix1==casesprises[11])||(choix1==casesprises[12])||(choix1==casesprises[13])||(choix1==casesprises[14])||(choix1==casesprises[15]))||((choix1>16)||(choix1<1))){
+		
+		if ((choix1>16)||(choix1<1)){
+			choix1 = readInt("Veuillez choisir un chiffre entre 1 et 16.");
+		}
+			
+
+		if ((choix1==casesprises[0])||(choix1==casesprises[1])||(choix1==casesprises[2])||(choix1==casesprises[3])||(choix1==casesprises[4])||(choix1==casesprises[5])||(choix1==casesprises[6])||(choix1==casesprises[7])||(choix1==casesprises[8])||(choix1==casesprises[9])||(choix1==casesprises[10])||(choix1==casesprises[11])||(choix1==casesprises[12])||(choix1==casesprises[13])||(choix1==casesprises[14])||(choix1==casesprises[15])){
+			choix1 = readInt("Cette case à déja été trouvée !");
+		}
+		
+		}
+		affsolocarte(cartes,tab,(choix1-1));
+
+		
+	int choix2 = readInt(joueur_nom + ", choisissez votre deuxième case.");
+	while (((choix2==casesprises[0])||(choix2==casesprises[1])||(choix2==casesprises[2])||(choix2==casesprises[3])||(choix2==casesprises[4])||(choix2==casesprises[5])||(choix2==casesprises[6])||(choix2==casesprises[7])||(choix2==casesprises[8])||(choix2==casesprises[9])||(choix2==casesprises[10])||(choix2==casesprises[11])||(choix2==casesprises[12])||(choix2==casesprises[13])||(choix2==casesprises[14])||(choix2==casesprises[15]))||((choix2==choix1)||(choix2>16)||(choix2<1))){
+		if (choix2==choix1){
+		choix2 = readInt("Veuillez choisir une case différente de la première.");
+		}
+		if ((choix2>16)||(choix2<1)){
+			choix2 = readInt("Veuillez choisir un chiffre entre 1 et 16.");
+		}
+		if ((choix2==casesprises[0])||(choix2==casesprises[1])||(choix2==casesprises[2])||(choix2==casesprises[3])||(choix2==casesprises[4])||(choix2==casesprises[5])||(choix2==casesprises[6])||(choix2==casesprises[7])||(choix2==casesprises[8])||(choix2==casesprises[9])||(choix2==casesprises[10])||(choix2==casesprises[11])||(choix2==casesprises[12])||(choix2==casesprises[13])||(choix2==casesprises[14])||(choix2==casesprises[15])){
+			choix2 = readInt("Cette case à déja été trouvée !");
+		}
+	}
+	
+			affsolocarte(cartes,tab,(choix2-1));
+
+	Boolean next = readBoolean("Joueur suivant !");
+		while (next!=true){
+			 next = readBoolean("Joueur suivant !");
+		}
+		
+	if ((cartes[choix1-1][9]==cartes[choix2-1][9])&&(cartes[choix1-1][10]==cartes[choix2-1][10])&&(cartes[choix1-1][11]==cartes[choix2-1][11])){
+		casesprises[score] = choix1;
+		casesprises[score+1] = choix2;
+		score=score+2;
+		
+		
+	}
+	else {
+		cachesolocarte(cartes,tab,choix1-1);
+		cachesolocarte(cartes,tab,choix2-1);
+	}
+
+	
+			if (joueur == 1){
+		joueur=2;
+	}
+	else if (joueur == 2){
+		joueur=1;	
+	}
+
+		
+
+}
+			println("Bravo " + joueur_nom + " ! Tu as gagné !");
+			
+			Boolean replay = readBoolean("Rejouer ?");
+			if (replay==true){
+				main();
+			}
+	
+}	
+			
