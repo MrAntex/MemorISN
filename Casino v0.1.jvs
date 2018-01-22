@@ -1,0 +1,146 @@
+
+int [] ordre = new int [5];
+int [] rand = new int [5];
+int [] randbas = new int [5];
+int somme2=0;
+void main(){
+	reset(42,42);
+	setPixel(0,0,"red");
+	for (int i = -31;i<=31;i=i+12){
+		for (int u = -31;u<=31;u++){
+			setPixel(u,i,"black");
+			setPixel(u,i+1,"black");
+			setPixel(u,i+2,"black");
+			setPixel(i,u,"black");
+			setPixel(i+1,u,"black");
+			setPixel(i+2,u,"black");
+			
+		}
+	}
+	
+	
+	 ordre[0] = random (1,6);
+	
+	 ordre[1] = random (1,6);
+		while(ordre[1]==ordre[0]){ordre[1]=random(1,6);}
+		
+	 ordre[2] = random (1,6);
+		while(ordre[2]==ordre[0]||ordre[2]==ordre[1]){ ordre[2] = random (1,6);}
+		
+	 ordre[3] = random (1,6);
+		while(ordre[3]==ordre[0]||ordre[3]==ordre[1]||ordre[3]==ordre[2]){ordre[3] = random (1,6);}
+			 
+	 ordre[4] = random (1,6);
+		while(ordre[4]==ordre[0]||ordre[4]==ordre[1]||ordre[4]==ordre[2]||ordre[4]==ordre[3]){ordre[4] = random (1,6);}
+		
+		for(int comp=0;comp<=4;comp++){
+			 rand[comp] = random(1,5);
+	drawgauche(rand[comp],ordre[comp]-3);
+	}
+	drawbas(2,-2);
+	
+	int somme=rand[0]+rand[1]+rand[2]+rand[3]+rand[4];
+
+	while(somme2!=somme){
+	for(int comp2=0;comp2<=4;comp2++){
+			 randbas[comp2] = random(1,5);
+		somme2=randbas[0]+randbas[1]+randbas[2]+randbas[3]+randbas[4];
+	}
+}
+}
+void drawgauche(int nombre,int position){
+
+	switch (nombre){
+		case(1):
+		for(int i=1;i<=3;i++){
+			setPixel(-34,(12*position)+i,"blue"); // 3
+			setPixel(-34,(12*position)-i,"blue"); // 6
+			setPixel(-34,(12*position),"blue"); // point
+		}
+		break;
+		case(2):
+		for(int i=1;i<=3;i++){
+			setPixel(-34,(12*position)+i,"blue"); // 3
+			setPixel(-38,(12*position)-i,"blue"); // 5
+			setPixel(-38+i,(12*position),"blue"); // 4
+			setPixel(-38+i,(12*position)+4,"blue"); // 1
+			setPixel(-38+i,(12*position)-4,"blue"); // 7
+		}
+		break;
+		case(3):
+		for(int i=1;i<=3;i++){
+			setPixel(-34,(12*position)+i,"blue"); // 3
+			setPixel(-34,(12*position)-i,"blue"); // 6
+			setPixel(-38+i,(12*position),"blue"); // 4
+			setPixel(-38+i,(12*position)+4,"blue"); // 1
+			setPixel(-38+i,(12*position)-4,"blue"); // 7
+		}
+		break;
+		case(4):
+		for(int i=1;i<=3;i++){
+			setPixel(-34,(12*position)+i,"blue"); // 3
+			setPixel(-34,(12*position)-i,"blue"); // 6
+			setPixel(-38+i,(12*position),"blue"); // 4
+			setPixel(-38,(12*position)+i,"blue"); // 2
+		}
+		break;
+		case(5):
+		for(int i=1;i<=3;i++){
+			setPixel(-38,(12*position)+i,"blue"); // 2
+			setPixel(-34,(12*position)-i,"blue"); // 6
+			setPixel(-38+i,(12*position),"blue"); // 4
+			setPixel(-38+i,(12*position)+4,"blue"); // 1
+			setPixel(-38+i,(12*position)-4,"blue"); // 7
+		}
+		break;
+	
+	}
+}
+	void drawbas(int nombre,int position){
+
+	switch (nombre){
+		case(1):
+		for(int i=1;i<=3;i++){
+			setPixel((12*position)+3,-33-i,"blue"); //setPixel(-34,(12*position)+i,"blue"); 3
+			setPixel((12*position)+3,-37-i,"blue"); //setPixel(-34,(12*position)-i,"blue"); 6
+			setPixel((12*position)+3,-37,"blue"); //setPixel(-34,(12*position),"blue"); point
+		}
+		break;
+		case(2):
+		for(int i=1;i<=3;i++){
+			setPixel((12*position)+3,-33-i,"blue"); // 3*
+			setPixel((12*position)-3,-32-i,"blue"); // 5*
+			setPixel((12*position)-i,-36,"blue"); // 4
+			//setPixel(-38+i,(12*position)+4,"blue"); // 1
+			//setPixel(-38+i,(12*position)-4,"blue"); // 7
+		}
+		break;
+		case(3):
+		for(int i=1;i<=3;i++){
+			setPixel(-34,(12*position)+i,"blue"); // 3
+			setPixel(-34,(12*position)-i,"blue"); // 6
+			setPixel(-38+i,(12*position),"blue"); // 4
+			setPixel(-38+i,(12*position)+4,"blue"); // 1
+			setPixel(-38+i,(12*position)-4,"blue"); // 7
+		}
+		break;
+		case(4):
+		for(int i=1;i<=3;i++){
+			setPixel(-34,(12*position)+i,"blue"); // 3
+			setPixel(-34,(12*position)-i,"blue"); // 6
+			setPixel(-38+i,(12*position),"blue"); // 4
+			setPixel(-38,(12*position)+i,"blue"); // 2
+		}
+		break;
+		case(5):
+		for(int i=1;i<=3;i++){
+			setPixel(-38,(12*position)+i,"blue"); // 2
+			setPixel(-34,(12*position)-i,"blue"); // 6
+			setPixel(-38+i,(12*position),"blue"); // 4
+			setPixel(-38+i,(12*position)+4,"blue"); // 1
+			setPixel(-38+i,(12*position)-4,"blue"); // 7
+		}
+		break;
+	
+	}
+}
