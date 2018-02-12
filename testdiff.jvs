@@ -1,0 +1,45 @@
+
+	
+void main(){
+	// création d'un tableau contenant les probabilités d'apparition de chaque type de case en fonction de la difficulté
+	int [][] difficulte = {{0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3},{0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,2,2,2,2,3,3},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,2,2,3,3,3,3}};
+	int [][] cases = new int [25][3];
+	int k=0;
+	// tableau contenant le nombre de cases par type dans la grille
+	int [] lotobrevsssssss = new int [4];
+lotobrevsssssss[0]=0;
+
+	// choix de la difficulté
+	int diff = readInt("Difficulté ? 1 / 2 / 3");
+
+	// conditions pour la création d'une grille en fonction du nombre de type de cases.
+	while ((lotobrevsssssss[0]<(5*diff))||(lotobrevsssssss[1]<(lotobrevsssssss[2]+lotobrevsssssss[3]))||(lotobrevsssssss[2]<lotobrevsssssss[3])){
+		for(int batman=0;batman<=3;batman++){lotobrevsssssss[batman]=0;}
+		
+	// choix aléatoire du nombre de chaque type de case
+	for (int i=0;i<=24;i++){
+		
+		// initialisation d'une variable x aléatoire entre 0 et 24
+		int rand=random(0,25);
+		// Récupération de la xième valeur dans le tableau de la difficulté choisie
+		cases[i][0]=difficulte[diff-1][rand];
+		//création d'une variable tampon (pour tests)
+		int ryt=cases[i][0];
+		// Incrémentation du compteur de cases en fonction du type tiré au sort
+		lotobrevsssssss[ryt]++;
+		
+	}
+	}
+	// Console retour pour les tests : affiche les compteurs de types de cases ainsi que la difficulté choisie
+	println("Difficulté : "+diff);
+	println("Lotobrevs : "+lotobrevsssssss[0]);
+	println("1         : "+lotobrevsssssss[1]);
+	println("2         : "+lotobrevsssssss[2]);
+	println("3         : "+lotobrevsssssss[3]);
+	println();
+
+	//affichage d'un tableau représentant les cases qui seront présentes lors du jeu
+		for(int c=0;c<=4;c++){
+	println("   " +cases[(5*c)][0] + "  " + cases[(5*c)+1][0] + "  " + cases[(5*c)+2][0] + "  " + cases[(5*c)+3][0] + "  " + cases[(5*c)+4][0]);
+		}
+}
