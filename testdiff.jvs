@@ -86,7 +86,7 @@ lotobrevsssssss[0]=0;
 		}
 		println();
 	println("      " + compteurs[5][1]+ "  " + compteurs[6][1]+ "  " +compteurs[7][1]+ "  " +compteurs[8][1]+ "  " +compteurs[9][1]);
-	println("      " + compteurs[5][0]+ "  " + compteurs[6][0]+ "  "  +compteurs[7][0]+ "  " +compteurs[8][0]+ "  " +compteurs[9][0]);
+	println("      " + compteurs[5][0]+ "  " + compteurs[6][0]+ "  " +compteurs[7][0]+ "  " +compteurs[8][0]+ "  " +compteurs[9][0]);
 
 
 }
