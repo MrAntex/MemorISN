@@ -2,7 +2,7 @@
 	
 void main(){
 	// création d'un tableau contenant les probabilités d'apparition de chaque type de case en fonction de la difficulté
-	int [][] difficulte = {{0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3},{0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,2,2,2,2,3,3},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,2,2,3,3,3,3}};
+	int [][] difficulte = {{0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3},{0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,2,2,2,2,3,3,3},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,2,2,2,2,3,3,3,3,3}};
 	int [][] cases = new int [25][3];
 	int [][] compteurs = {{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}};
 	
@@ -16,7 +16,7 @@ lotobrevsssssss[0]=0;
 	int diff = readInt("Difficulté ? 1 / 2 / 3");
 
 	// conditions pour la création d'une grille en fonction du nombre de type de cases.
-	while ((lotobrevsssssss[0]<(5*diff))||(lotobrevsssssss[1]<(lotobrevsssssss[2]+lotobrevsssssss[3]))||(lotobrevsssssss[2]<lotobrevsssssss[3])){//||(compteurs[0][1]>9)||(compteurs[1][1]>9)||(compteurs[2][1]>9)||(compteurs[3][1]>9)||(compteurs[4][1]>9)||(compteurs[5][1]>9)||(compteurs[6][1]>9)||(compteurs[7][1]>9)||(compteurs[8][1]>9)||(compteurs[9][1]>9)){
+	while ((lotobrevsssssss[0]<(2*diff)) || (lotobrevsssssss[2]==0)/*||(lotobrevsssssss[1]<(lotobrevsssssss[2]+lotobrevsssssss[3]))*/){//||(compteurs[0][1]>9)||(compteurs[1][1]>9)||(compteurs[2][1]>9)||(compteurs[3][1]>9)||(compteurs[4][1]>9)||(compteurs[5][1]>9)||(compteurs[6][1]>9)||(compteurs[7][1]>9)||(compteurs[8][1]>9)||(compteurs[9][1]>9)){
 		for(int batman=0;batman<=3;batman++){lotobrevsssssss[batman]=0;}
 		
 	// choix aléatoire du nombre de chaque type de case
@@ -36,8 +36,15 @@ lotobrevsssssss[0]=0;
 			compteurs[w][0]=0;
 			compteurs[w][1]=0;
 			compteurs[w+5][1]=0;
+			compteurs[w+5][0]=0;
 		}
-
+		/*
+choix = readInt("case ?");
+if (cases[choix-1][1] == 1){
+	enlever le drapeau
+	setPixel(coordo[choix-1][0],coordo[choix-1][1],
+	*/
+}
 		// Calcul des compteurs des lignes
 		for(int y=0;y<=4;y++){
 			for(int x=0;x<=4;x++){
@@ -45,26 +52,27 @@ lotobrevsssssss[0]=0;
 					compteurs[y][0]++;
 				}
 				else if (cases[(5*y)+x][0]!= 0){
-					if(compteurs[y][1]==0){compteurs[y][1]=1;}
-					compteurs[y][1]=(compteurs[y][1]*cases[(5*y)+x][0]);
+					compteurs[y][1]=(compteurs[y][1]+cases[(5*y)+x][0]);
 				}
 
 			}
+		}
 		// Calcul des compteurs de colonnes
 		for(int q=0;q<=4;q++){
 			for(int j=0;j<=4;j++){
-				if (cases[(5*q)+j][0]==0){
-					compteurs[j+5][0]++;
+				if (cases[(5*j)+q][0]==0){
+					compteurs[q+5][0]++;
 				}
-				else if (cases[(5*q)+j][0]!= 0){
-					if(compteurs[j+5][1]==0){compteurs[j+5][1]=1;}
-					compteurs[j+5][1]=(compteurs[j+5][1])*(cases[(5*q)+j][0]);
+				else if (cases[(5*j)+q][0]!= 0){
+					
+					compteurs[q+5][1]=(compteurs[q+5][1]+cases[(5*j)+q][0]);
 				}
 			}
 		}
-		}
+		
 	}
-	}
+	
+	
 	// Console retour pour les tests : affiche les compteurs de types de cases ainsi que la difficulté choisie
 	println();
 	println("  Difficulté : "+diff);
@@ -82,11 +90,11 @@ lotobrevsssssss[0]=0;
 		
 	//affichage d'un tableau représentant les cases qui seront présentes lors du jeu
 		for(int c=0;c<=4;c++){
-	println(compteurs[c][0]+" " + compteurs[c][1] +"   " +cases[(5*c)][0] + "  " + cases[(5*c)+1][0] + "  " + cases[(5*c)+2][0] + "  " + cases[(5*c)+3][0] + "  " + cases[(5*c)+4][0]);
+	println(/*compteurs[c][0]+" " + compteurs[c][1] +*/"   " +cases[(5*c)][0] + "  " + cases[(5*c)+1][0] + "  " + cases[(5*c)+2][0] + "  " + cases[(5*c)+3][0] + "  " + cases[(5*c)+4][0]);
 		}
-		println();
+		/*println();
 	println("      " + compteurs[5][1]+ "  " + compteurs[6][1]+ "  " +compteurs[7][1]+ "  " +compteurs[8][1]+ "  " +compteurs[9][1]);
 	println("      " + compteurs[5][0]+ "  " + compteurs[6][0]+ "  " +compteurs[7][0]+ "  " +compteurs[8][0]+ "  " +compteurs[9][0]);
-
+*/
 
 }

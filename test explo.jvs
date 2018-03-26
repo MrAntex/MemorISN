@@ -1,0 +1,53 @@
+
+void explo(int x, int y){
+	reset(49,49);
+	double m = 50;
+	double s=20;
+	//int x = readInt("x ?");
+	//int y = readInt("y ?");
+	int b = 5;
+	int f=2;
+	
+	for(int k=0;k<=65;k++){
+		for(int o=0;o<=m;o++){
+		int c =random(0,256);
+		int p=0;
+		//int p = random(30,150);
+		 b = random(5,45);
+		int w =random(x-k-b,x+k+b);
+		int v =random(y-k-b,x+k+b);
+			
+		
+		setPixel(w+1,v,255,c,p);
+			
+		setPixel(w,v+1,255,c,p);
+		setPixel(w,v,255,c,p);
+			
+		setPixel(w+1,v+1,255,c,p);
+
+		if (k==35){
+			
+			k=64;
+			m=1000;}
+			
+		if(k>35){
+			sleep(1);
+			
+		}
+		
+		
+		}
+		sleep(f);
+		m=m*1.25;
+		s=s*1.05;
+		 f = ((int)s)/2;
+
+		
+	}
+}
+void main(){
+	int x=random(-32,32);
+	int y=random(-32,32);
+	explo(x,y);
+	
+}
