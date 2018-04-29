@@ -1,0 +1,604 @@
+
+int [][] difficulte = {{0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,3,3},{0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,1,2,2,2,2,3,3},{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,2,2,3,3,3,3}};
+	int [][] cases = new int [25][3];
+	int [][] compteurs = {{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0},{0,0}};
+//Les Lotobrevs sont les cases mortes de notre jeu, elles arretent le jeux et font perdre tout les points au joueur
+//Création de la grille, en laissant du blanc sur les cotés pour les compteurs 
+void grille(){
+	for (int i = -31;i<=31;i=i+12){
+		for (int u = -31;u<=31;u++)
+		{
+			setPixel(u,i+8,"black");
+			setPixel(u,i+9,"black");
+			setPixel(u,i+10,"black");
+			setPixel(i,u+8,"black");
+			setPixel(i+1,u+8,"black");
+			setPixel(i+2,u+8,"black");
+			
+		}
+}
+}
+
+void drapeau (int x,int y)//procédure pour créer le graphisme du drapeau, que le joueur peut placer pour marquer les Lotobrevs
+{
+	for(int i=0-4;i<=4;i++)
+	{
+		setPixel(x,y+i,"red");
+		setPixel(x+i,y,"red");
+	}
+}
+void lotobrev (int x, int y)//création du lotobrev (cases mortes)
+{
+	for(int i=0;i<=9;i++)
+	{
+		setPixel(x+i-4,y+i-4,"black");
+		setPixel(x+i-4,y-i+4,"black");
+	}
+}
+void un (int x,int y)//création du 1
+{
+	for(int i=-3;i<=3;i++){
+			setPixel(x,y+i,"orange"); 
+			
+		}
+
+}
+void deux( int x,int y)//création du 2
+{
+	setPixel(x-1,y+3,"blue");
+	setPixel(x,y+3,"blue");
+	setPixel(x+1,y+3,"blue");
+	setPixel(x+2,y+2,"blue");
+	setPixel(x+2,y+1,"blue");
+	setPixel(x+1,y,"blue");
+	setPixel(x,y,"blue");
+	setPixel(x-1,y,"blue");
+	setPixel(x-2,y-2,"blue");
+	setPixel(x-2,y-1,"blue");
+	setPixel(x+1,y-3,"blue");
+	setPixel(x,y-3,"blue");
+	setPixel(x-1,y-3,"blue");
+	
+}
+void trois ( int x,int y)//création du 3
+{
+	setPixel(x-1,y+3,"green");
+	setPixel(x,y+3,"green");
+	setPixel(x+1,y+3,"green");
+	setPixel(x+2,y+2,"green");
+	setPixel(x+2,y+1,"green");
+	setPixel(x+1,y,"green");
+	setPixel(x,y,"green");
+	setPixel(x-1,y,"green");
+	setPixel(x+2,y-2,"green");
+	setPixel(x+2,y-1,"green");
+	setPixel(x+1,y-3,"green");
+	setPixel(x,y-3,"green");
+	setPixel(x-1,y-3,"green");
+	
+}
+void quatre ( int x,int y)//création du 4
+{
+	setPixel(x-2,y+3,"green");
+	setPixel(x-2,y+2,"green");
+	setPixel(x-2,y+1,"green");
+	setPixel(x+1,y,"green");
+	setPixel(x,y,"green");
+	setPixel(x-1,y,"green");
+	setPixel(x+2,y+3,"green");
+	setPixel(x+2,y+2,"green");
+	setPixel(x+2,y+1,"green");
+	setPixel(x+2,y-2,"green");
+	setPixel(x+2,y-1,"green");
+	setPixel(x+2,y-3,"green");
+	
+}
+void cinq ( int x,int y)//création du 5
+{
+	setPixel(x-1,y+3,"blue");
+	setPixel(x,y+3,"blue");
+	setPixel(x+1,y+3,"blue");
+	setPixel(x-2,y+2,"blue");
+	setPixel(x-2,y+1,"blue");
+	setPixel(x+1,y,"blue");
+	setPixel(x,y,"blue");
+	setPixel(x-1,y,"blue");
+	setPixel(x+2,y-2,"blue");
+	setPixel(x+2,y-1,"blue");
+	setPixel(x+1,y-3,"blue");
+	setPixel(x,y-3,"blue");
+	setPixel(x-1,y-3,"blue");
+}
+void six ( int x,int y)//création du 6
+{
+	setPixel(x-1,y+3,"blue");
+	setPixel(x,y+3,"blue");
+	setPixel(x+1,y+3,"blue");
+	setPixel(x-2,y+2,"blue");
+	setPixel(x-2,y+1,"blue");
+	setPixel(x+1,y,"blue");
+	setPixel(x,y,"blue");
+	setPixel(x-1,y,"blue");
+	setPixel(x+2,y-2,"blue");
+	setPixel(x+2,y-1,"blue");
+	setPixel(x+1,y-3,"blue");
+	setPixel(x,y-3,"blue");
+	setPixel(x-1,y-3,"blue");
+	setPixel(x-2,y-2,"blue");
+	setPixel(x-2,y-1,"blue");
+}
+void sept ( int x,int y)//création du 7
+{
+	setPixel(x-1,y+3,"blue");
+	setPixel(x,y+3,"blue");
+	setPixel(x+1,y+3,"blue");
+	setPixel(x+2,y+2,"blue");
+	setPixel(x+2,y+1,"blue");
+	setPixel(x+2,y,"blue");
+	setPixel(x+2,y-2,"blue");
+	setPixel(x+2,y-1,"blue");
+	setPixel(x+2,y-3,"blue");
+}
+void huit ( int x,int y)//création du 8
+{
+	setPixel(x-1,y+3,"green");
+	setPixel(x,y+3,"green");
+	setPixel(x+1,y+3,"green");
+	setPixel(x+2,y+2,"green");
+	setPixel(x-2,y+1,"green");
+	setPixel(x-2,y+2,"green");
+	setPixel(x+2,y+1,"green");
+	setPixel(x+1,y,"green");
+	setPixel(x,y,"green");
+	setPixel(x-1,y,"green");
+	setPixel(x+2,y-2,"green");
+	setPixel(x+2,y-1,"green");
+	setPixel(x+1,y-3,"green");
+	setPixel(x,y-3,"green");
+	setPixel(x-1,y-3,"green");
+	setPixel(x-2,y-2,"green");
+	setPixel(x-2,y-1,"green");
+}
+void neuf ( int x,int y)//création du 9
+{
+	setPixel(x-1,y+3,"green");
+	setPixel(x,y+3,"green");
+	setPixel(x+1,y+3,"green");
+	setPixel(x+2,y+2,"green");
+	setPixel(x-2,y+1,"green");
+	setPixel(x-2,y+2,"green");
+	setPixel(x+2,y+1,"green");
+	setPixel(x+1,y,"green");
+	setPixel(x,y,"green");
+	setPixel(x-1,y,"green");
+	setPixel(x+2,y-2,"green");
+	setPixel(x+2,y-1,"green");
+	setPixel(x+1,y-3,"green");
+	setPixel(x,y-3,"green");
+	setPixel(x-1,y-3,"green");
+}
+void zero( int x,int y)
+{	
+	setPixel(x-1,y+3,"green");
+	setPixel(x,y+3,"green");
+	setPixel(x+1,y+3,"green");
+	setPixel(x+2,y+2,"green");
+	setPixel(x-2,y+1,"green");
+	setPixel(x-2,y+2,"green");
+	setPixel(x+2,y+1,"green");
+	setPixel(x+2,y,"green");
+	setPixel(x-2,y,"green");
+	setPixel(x+2,y-2,"green");
+	setPixel(x+2,y-1,"green");
+	setPixel(x+1,y-3,"green");
+	setPixel(x,y-3,"green");
+	setPixel(x-1,y-3,"green");
+	setPixel(x-2,y-2,"green");
+	setPixel(x-2,y-1,"green");
+}
+void casesvide(int x, int y)//créer une case vide pour remplacer les drapeaux.
+{
+		for(int i=-4;i<=4;i++)
+	{
+		setPixel(x-4,y+i,"white");
+		setPixel(x-3,y+i,"white");
+		setPixel(x-2,y+i,"white");
+		setPixel(x-1,y+i,"white");
+		setPixel(x,y+i,"white");
+		setPixel(x+1,y+i,"white");
+		setPixel(x+2,y+i,"white");
+		setPixel(x+3,y+i,"white");
+		setPixel(x+4,y+i,"white");
+	}	
+}
+void points(int score)
+{
+	int unite= score%10;
+score = score/10;
+int dizaine = score%10; 
+int centaine= score/10;
+
+if(unite==0)
+{
+	zero(40,-40);
+}
+else if(unite==1)
+{
+	un(40,-40);
+}
+else if(unite==2)
+{
+	deux(40,-40);
+}
+else if(unite==3)
+{
+	trois(40,-40);
+}
+else if(unite==4)
+{
+	quatre(40,-40);
+}
+else if(unite==5)
+{
+	cinq(40,-40);
+}
+else if(unite==6)
+{
+	six(40,-40);
+}
+else if(unite==7)
+{
+	sept(40,-40);
+}
+else if(unite==8)
+{
+	huit(40,-40);
+}
+else if(unite==9)
+{
+	neuf(40,-40);
+}
+
+if(dizaine==0)
+{
+	zero(35,-40);
+}
+else if(dizaine==1)
+{
+	un(35,-40);
+}
+else if(dizaine==2)
+{
+	deux(35,-40);
+}
+else if(dizaine==3)
+{
+	trois(35,-40);
+}
+else if(dizaine==4)
+{
+	quatre(35,-40);
+}
+else if(dizaine==5)
+{
+	cinq(35,-40);
+}
+else if(dizaine==6)
+{
+	six(35,-40);
+}
+else if(dizaine==7)
+{
+	sept(35,-40);
+}
+else if(dizaine==8)
+{
+	huit(35,-40);
+}
+else if(dizaine==9)
+{
+	neuf(35,-40);
+}
+
+
+if(centaine==0)
+{
+	zero(30,-40);
+}
+else if(centaine==1)
+{
+	un(30,-40);
+}
+else if(centaine==2)
+{
+	deux(30,-40);
+}
+else if(centaine==3)
+{
+	trois(30,-40);
+}
+else if(centaine==4)
+{
+	quatre(30,-40);
+}
+else if(centaine==5)
+{
+	cinq(30,-40);
+}
+else if(centaine==6)
+{
+	six(30,-40);
+}
+else if(centaine==7)
+{
+	sept(30,-40);
+}
+else if(centaine==8)
+{
+	huit(30,-40);
+}
+else if(centaine==9)
+{
+	neuf(30,-40);
+}
+
+}
+void ui()
+{
+	// création d'un tableau contenant les probabilités d'apparition de chaque type de case en fonction de la difficulté
+
+	int k=0;
+	// tableau contenant le nombre de cases par type dans la grille
+	int [] lotobrevsssssss = new int [4];
+lotobrevsssssss[0]=0;
+
+	// choix de la difficulté
+	int diff = readInt("Difficulté ? 1 / 2 / 3");
+
+	// conditions pour la création d'une grille en fonction du nombre de type de cases.
+	while ((lotobrevsssssss[0]<(5*diff))||(lotobrevsssssss[1]<(lotobrevsssssss[2]+lotobrevsssssss[3]))||(lotobrevsssssss[2]<lotobrevsssssss[3])){//||(compteurs[0][1]>9)||(compteurs[1][1]>9)||(compteurs[2][1]>9)||(compteurs[3][1]>9)||(compteurs[4][1]>9)||(compteurs[5][1]>9)||(compteurs[6][1]>9)||(compteurs[7][1]>9)||(compteurs[8][1]>9)||(compteurs[9][1]>9)){
+		for(int batman=0;batman<=3;batman++){lotobrevsssssss[batman]=0;}
+		
+	// choix aléatoire du nombre de chaque type de case
+	for (int i=0;i<=24;i++){
+		
+		// initialisation d'une variable x aléatoire entre 0 et 24
+		int rand=random(0,25);
+		// Récupération de la xième valeur dans le tableau de la difficulté choisie
+		cases[i][0]=difficulte[diff-1][rand];
+		//création d'une variable tampon (pour tests)
+		int ryt=cases[i][0];
+		// Incrémentation du compteur de cases en fonction du type tiré au sort
+		lotobrevsssssss[ryt]++;
+	}
+		// Initialisation des compteurs
+		for(int w=0;w<=4;w++){
+			compteurs[w][0]=0;
+			compteurs[w][1]=0;
+			compteurs[w+5][1]=0;
+		}
+		
+		// Calcul des compteurs des lignes
+		for(int y=0;y<=4;y++){
+			for(int x=0;x<=4;x++){
+				if (cases[(5*y)+x][0]==0){
+					compteurs[y][0]++;
+				}
+				else if (cases[(5*y)+x][0]!= 0){
+					if(compteurs[y][1]==0){compteurs[y][1]=1;}
+					compteurs[y][1]=(compteurs[y][1]*cases[(5*y)+x][0]);
+				}
+
+			}
+		}
+		// Calcul des compteurs de colonnes
+		for(int q=0;q<=4;q++){
+			for(int j=0;j<=4;j++){
+				if (cases[(5*j)+q][0]==0){
+					compteurs[q+5][0]++;
+				}
+				else if (cases[(5*j)+q][0]!= 0){
+					if(compteurs[q+5][1]==0){compteurs[q+5][1]=1;}
+					compteurs[q+5][1]=(compteurs[q+5][1]*cases[(5*j)+q][0]);
+				}
+			}
+		}
+		
+	
+	
+	}
+}
+void main(){
+	reset(49,49);
+	grille();//affichage de la grille
+	ui();
+	int choix = 24;
+	int mode = 4;
+	int score =0;
+	for(int i=0;i<=24;i++)
+	{
+		cases[i][1]=0;
+		cases[i][2]=0;
+	}
+	
+	int [][] coordo ={{-24,-12,0,12,24,-24,-12,0,12,24,-24,-12,0,12,24,-24,-12,0,12,24,-24,-12,0,12,24},{32,32,32,32,32,20,20,20,20,20,8,8,8,8,8,-4,-4,-4,-4,-4,-16,-16,-16,-16,-16}};//tableau des coordonnées des cases.
+	
+	for(int paf=0;paf<=4;paf++){
+			if (compteurs[paf][0]==0){zero(coordo[0][paf*5]-12,coordo[1][paf*5]);}
+			if (compteurs[paf][0]==1){un(coordo[0][paf*5]-12,coordo[1][paf*5]);}
+			if (compteurs[paf][0]==2){deux(coordo[0][paf*5]-12,coordo[1][paf*5]);}
+			if (compteurs[paf][0]==3){trois(coordo[0][paf*5]-12,coordo[1][paf*5]);}
+			if (compteurs[paf][0]==4){quatre(coordo[0][paf*5]-12,coordo[1][paf*5]);}
+			if (compteurs[paf][0]==5){cinq(coordo[0][paf*5]-12,coordo[1][paf*5]);}
+		}
+	for(int puf=0;puf<=4;puf++){
+			if (compteurs[puf][1]==0){zero(coordo[0][puf*5]-22,coordo[1][puf*5]);}
+			if (compteurs[puf][1]==1){un(coordo[0][puf*5]-22,coordo[1][puf*5]);}
+			if (compteurs[puf][1]==2){deux(coordo[0][puf*5]-22,coordo[1][puf*5]);}
+			if (compteurs[puf][1]==3){trois(coordo[0][puf*5]-22,coordo[1][puf*5]);}
+			if (compteurs[puf][1]==4){quatre(coordo[0][puf*5]-22,coordo[1][puf*5]);}
+			if (compteurs[puf][1]==5){cinq(coordo[0][puf*5]-22,coordo[1][puf*5]);}
+			if (compteurs[puf][1]==6){six(coordo[0][puf*5]-22,coordo[1][puf*5]);}
+			if (compteurs[puf][1]==7){sept(coordo[0][puf*5]-22,coordo[1][puf*5]);}
+			if (compteurs[puf][1]==8){huit(coordo[0][puf*5]-22,coordo[1][puf*5]);}
+			if (compteurs[puf][1]==9){neuf(coordo[0][puf*5]-22,coordo[1][puf*5]);}
+		}
+	for(int pif=5;pif<=9;pif++){
+			if (compteurs[pif][0]==0){zero(-24+(12*(pif-5)),-28);}
+			if (compteurs[pif][0]==1){un(-24+(12*(pif-5)),-28);}
+			if (compteurs[pif][0]==2){deux(-24+(12*(pif-5)),-28);}
+			if (compteurs[pif][0]==3){trois(-24+(12*(pif-5)),-28);}
+			if (compteurs[pif][0]==4){quatre(-24+(12*(pif-5)),-28);}
+			if (compteurs[pif][0]==5){cinq(-24+(12*(pif-5)),-28);}
+			println(compteurs[pif][0]); 
+		}
+	for(int pif=5;pif<=9;pif++){
+			if (compteurs[pif][1]==0){zero(-24+(12*(pif-5)),-40);}
+			if (compteurs[pif][1]==1){un(-24+(12*(pif-5)),-40);}
+			if (compteurs[pif][1]==2){deux(-24+(12*(pif-5)),-40);}
+			if (compteurs[pif][1]==3){trois(-24+(12*(pif-5)),-40);}
+			if (compteurs[pif][1]==4){quatre(-24+(12*(pif-5)),-40);}
+			if (compteurs[pif][1]==5){cinq(-24+(12*(pif-5)),-40);} 
+			if (compteurs[pif][1]==6){six(-24+(12*(pif-5)),-40);}
+			if (compteurs[pif][1]==7){sept(-24+(12*(pif-5)),-40);}
+			if (compteurs[pif][1]==8){huit(-24+(12*(pif-5)),-40);}
+			if (compteurs[pif][1]==9){neuf(-24+(12*(pif-5)),-40);}
+		}
+
+	while(/*cases[choix-1][0] != 0 || mode != 3*/1==1){
+	 mode = readInt("Que voulez vous faire ? 1: placer/enlever drapeau; 2: Réveler une case; 3: Quitter le jeu");//interaction avec le joueur.
+	if(mode == 1)
+	{
+		
+		
+		 choix = readInt("rentrer la case où placer/enlever le drapeau (entier entre 1 et 25)");
+		while(0 >= choix || choix > 25)
+			{
+				choix = readInt("Entre 1 et 25!!");	
+			}
+			
+		if(cases [choix-1][1] == 0)
+			{
+				drapeau(coordo[0][choix-1],coordo[1][choix-1]);
+				cases[choix-1][1]=1;
+			}
+		else 
+			{
+				casesvide(coordo[0][choix-1],coordo[1][choix-1]);
+				cases[choix-1][1]=0;
+			}
+		
+	}
+	else if(mode == 2)
+	{
+		 choix = readInt("rentrer la case à révélée (entier entre 1 et 25)");
+		while(0 >= choix || choix > 25)
+		{
+			choix = readInt("Entre 1 et 25!!");	
+		}
+		while(cases[choix-1][2]!= 0)
+		{
+			choix = readInt("case déjà révélée, choisissez une case vide");
+		}
+		if(cases[choix-1][0] == 0)//si la case contient un lotobrev, afficher ce lotobrev(au final il y aura une explosion)
+			{
+				casesvide(coordo[0][choix-1],coordo[1][choix-1]);
+				lotobrev(coordo[0][choix-1],coordo[1][choix-1]);
+				////////////explo/////////////////////
+				System.out.println("Votre gain sur cette partie est de" /*+ score  +"votre total est de" + total*/);
+				boolean verif;
+				verif = readBoolean("Voulez-vous relancer une partie ?");
+					if(verif==true){
+						main();
+					}
+					else{
+						break;
+					}
+				
+			}
+		else if(cases[choix-1][0] == 1)//si la case contient un trois, afficher ce trois
+			{
+				casesvide(coordo[0][choix-1],coordo[1][choix-1]);
+				un(coordo[0][choix-1],coordo[1][choix-1]);
+				
+				if(score==0){ //comptage des scores.
+					score=score+1;
+					casesvide(30,-40);
+					casesvide(35,-40);
+					casesvide(40,-40);
+					
+					points(score);
+				}
+				cases[choix-1][2]=1;
+				
+			}
+		else if(cases[choix-1][0] == 2)//si la case contient un deux, afficher ce deux
+			{
+				casesvide(coordo[0][choix-1],coordo[1][choix-1]);
+				deux(coordo[0][choix-1],coordo[1][choix-1]);
+				if(score==0)//comptage des scores.
+				{
+					score=score+2;
+					casesvide(30,-40);
+					casesvide(35,-40);
+					casesvide(40,-40);
+					
+					points(score);
+				}
+				else
+				{
+					score=score*2;
+					casesvide(30,-40);
+					casesvide(35,-40);
+					casesvide(40,-40);
+					
+					points(score);
+				}
+				
+				cases[choix-1][2]=1;
+			}
+		else if(cases[choix-1][0] == 3)//si la case contient un trois, afficher ce trois
+			{
+				casesvide(coordo[0][choix-1],coordo[1][choix-1]);
+				trois(coordo[0][choix-1],coordo[1][choix-1]);
+				
+				if(score==0)//comptage des scores.
+				{
+					score=score+3;
+					casesvide(30,-40);
+					casesvide(35,-40);
+					casesvide(40,-40);
+					
+					points(score);
+				}
+				else
+				{
+					score=score*3;
+					casesvide(30,-40);
+					casesvide(35,-40);
+					casesvide(40,-40);
+					points(score);
+				}
+				
+				cases[choix-1][2]=1;			
+			}
+					
+	}
+	else if(mode == 3)
+	{
+		
+		System.out.println("Votre gain sur cette partie est de" /*+ score  +"votre total est de" + total*/);
+		break;
+	}
+	else
+	{
+		mode = readInt("Entrer 1,2 ou 3!");//si le joueur tape autre chose que 1,2 ou 3
+	}
+	}
+
+
+	
+
+		
+	
+}
